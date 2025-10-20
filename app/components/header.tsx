@@ -1,5 +1,6 @@
 import { Link } from "react-router"
 import { Button } from "~/components/ui/button"
+import ThemeToggle from "~/components/theme-toggle"
 
 export function Header() {
   return (
@@ -9,6 +10,7 @@ export function Header() {
         <nav className="flex items-center gap-2">
           <Link to="/projects" className="text-sm">Projects</Link>
           <Link to="/about" className="text-sm">About</Link>
+          <ThemeToggle />
           <Link to="/contact" className="text-sm">
             <Button size="sm" variant="ghost">Contact</Button>
           </Link>
