@@ -10,6 +10,7 @@ export function Header() {
         <nav className="flex items-center gap-2">
           <Link to="/projects" className="text-sm">Projects</Link>
           <Link to="/about" className="text-sm">About</Link>
+          <Link to="/blog" className="text-sm">Blog</Link>
           <ThemeToggle />
           <Link to="/contact" className="text-sm">
             <Button size="sm" variant="ghost">Contact</Button>

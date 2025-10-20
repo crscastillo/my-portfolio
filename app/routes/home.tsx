@@ -17,6 +17,9 @@ import { Header } from "~/components/header"
 import { Hero } from "~/components/hero"
 import { ProjectCard } from "~/components/project-card"
 import { Footer } from "~/components/footer"
+import BlogCard from "~/components/blog-card"
+import { getTopPosts, type Post as BlogPost } from "../../lib/db/posts"
+import { useEffect, useState } from "react"
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -50,6 +53,18 @@ const sampleProjects = [
 ]
 
 export default function Home() {
+  const [topPosts, setTopPosts] = useState<BlogPost[]>([])
+
+  useEffect(() => {
+    let mounted = true
+    getTopPosts(3).then((p: BlogPost[]) => {
+      if (mounted) setTopPosts(p)
+    })
+    return () => {
+      mounted = false
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -63,6 +78,21 @@ export default function Home() {
             {sampleProjects.map((p) => (
               <ProjectCard key={p.id} project={p} />
             ))}
+          </div>
+        </section>
+
+        <section id="latest-posts" className="container mx-auto px-4 py-12">
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-semibold">Latest posts</h2>
+            <a href="/blog" className="text-sm text-primary underline">See all</a>
+          </div>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {topPosts.length ? (
+              topPosts.map((post) => <BlogCard key={post.id} post={post} />)
+            ) : (
+              <p className="text-muted-foreground">No posts yet.</p>
+            )}
           </div>
         </section>
 
