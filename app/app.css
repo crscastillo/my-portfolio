@@ -91,37 +91,53 @@ body {
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Dracula-inspired color palette */
+  --background: #282a36; /* base background */
+  --foreground: #f8f8f2; /* default text */
+
+  --card: #44475a; /* surfaces */
+  --card-foreground: #f8f8f2;
+  --popover: #44475a;
+  --popover-foreground: #f8f8f2;
+
+  /* Primary (soft purple) */
+  --primary: #6272a4;
+  --primary-foreground: #f8f8f2;
+
+  /* Secondary (pink) */
+  --secondary: #ff79c6;
+  --secondary-foreground: #282a36;
+
+  /* Muted / subtle text */
+  --muted: #6272a4; /* use a muted purple */
+  --muted-foreground: #bfbfbf;
+
+  /* Accent (cyan) */
+  --accent: #8be9fd;
+  --accent-foreground: #282a36;
+
+  /* Destructive / error */
+  --destructive: #ff5555;
+
+  --border: rgba(255, 255, 255, 0.06);
+  --input: #3b3f58; /* slightly lighter than card */
+  --ring: #6272a4;
+
+  /* Charts (palette inspired by Dracula) */
+  --chart-1: #ff79c6; /* pink */
+  --chart-2: #8be9fd; /* cyan */
+  --chart-3: #50fa7b; /* green */
+  --chart-4: #ffb86c; /* orange */
+  --chart-5: #bd93f9; /* lavender */
+
+  --sidebar: #21222c;
+  --sidebar-foreground: #f8f8f2;
+  --sidebar-primary: #6272a4;
+  --sidebar-primary-foreground: #f8f8f2;
+  --sidebar-accent: #ff79c6;
+  --sidebar-accent-foreground: #f8f8f2;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: #6272a4;
 }
 
 @layer base {
