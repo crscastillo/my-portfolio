@@ -15,9 +15,13 @@
 import type { Route } from "./+types/home"
 import { Header } from "~/components/header"
 import { Hero } from "~/components/hero"
-import { ProjectCard } from "~/components/project-card"
 import { Footer } from "~/components/footer"
-import BlogCard from "~/components/blog-card"
+import ProjectsSection from "~/components/projects-section"
+import TechnologiesSection from "~/components/technologies-section"
+import EducationSection from "~/components/education-section"
+import ClientsSection from "~/components/clients-section"
+import LatestPostsSection from "~/components/latest-posts-section"
+import ContactSection from "~/components/contact-section"
 import { getTopPosts, type Post as BlogPost } from "../../lib/db/posts"
 import { useEffect, useState } from "react"
 
@@ -72,91 +76,24 @@ export default function Home() {
       <main>
         <Hero />
 
-        <section id="projects" className="container mx-auto px-4 py-12">
-          <h2 className="text-2xl font-semibold">Selected projects</h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {sampleProjects.map((p) => (
-              <ProjectCard key={p.id} project={p} />
-            ))}
-          </div>
-        </section>
+        <ProjectsSection projects={sampleProjects} />
 
-        <section id="latest-posts" className="container mx-auto px-4 py-12">
-          <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-semibold">Latest posts</h2>
-            <a href="/blog" className="text-sm text-primary underline">See all</a>
-          </div>
+        <LatestPostsSection posts={topPosts} />
 
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {topPosts.length ? (
-              topPosts.map((post) => <BlogCard key={post.id} post={post} />)
-            ) : (
-              <p className="text-muted-foreground">No posts yet.</p>
-            )}
-          </div>
-        </section>
+        <TechnologiesSection
+          techs={["TypeScript", "React", "Node.js", "PostgreSQL", "Prisma", "Docker", "Tailwind CSS", "AWS"]}
+        />
 
-        <section id="technologies" className="container mx-auto px-4 py-12">
-          <h2 className="text-2xl font-semibold">Technologies</h2>
-          <p className="mt-2 text-muted-foreground">Tools and technologies I use every day.</p>
+        <EducationSection
+          entries={[
+            { title: "B.S. Computer Science — University of Somewhere", date: "2015 — 2019", detail: "Focus on distributed systems, databases, and full-stack development." },
+            { title: "Professional Certificate — Cloud Engineering", date: "2022", detail: "Hands-on cloud architecture and CI/CD best practices." },
+          ]}
+        />
 
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {[
-              "TypeScript",
-              "React",
-              "Node.js",
-              "PostgreSQL",
-              "Prisma",
-              "Docker",
-              "Tailwind CSS",
-              "AWS",
-            ].map((t) => (
-              <div key={t} className="rounded-md border p-3 text-center text-sm">
-                {t}
-              </div>
-            ))}
-          </div>
-        </section>
+        <ClientsSection clients={[{ name: "Acme Co" }, { name: "Bright Apps" }, { name: "Fintech Labs" }, { name: "HealthSync" }]} />
 
-        <section id="education" className="container mx-auto px-4 py-12">
-          <h2 className="text-2xl font-semibold">Education</h2>
-          <div className="mt-4 space-y-4">
-            <div className="rounded-md border p-4">
-              <h3 className="font-medium">B.S. Computer Science — University of Somewhere</h3>
-              <p className="text-sm text-muted-foreground">2015 — 2019</p>
-              <p className="mt-2 text-sm">Focus on distributed systems, databases, and full-stack development.</p>
-            </div>
-
-            <div className="rounded-md border p-4">
-              <h3 className="font-medium">Professional Certificate — Cloud Engineering</h3>
-              <p className="text-sm text-muted-foreground">2022</p>
-              <p className="mt-2 text-sm">Hands-on cloud architecture and CI/CD best practices.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="clients" className="container mx-auto px-4 py-12">
-          <h2 className="text-2xl font-semibold">Clients & collaborators</h2>
-          <p className="mt-2 text-muted-foreground">Selected companies I&apos;ve worked with.</p>
-
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center">
-            {[
-              { name: "Acme Co" },
-              { name: "Bright Apps" },
-              { name: "Fintech Labs" },
-              { name: "HealthSync" },
-            ].map((c) => (
-              <div key={c.name} className="flex items-center justify-center rounded-md border p-4">
-                <span className="text-sm font-medium">{c.name}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="contact" className="container mx-auto px-4 py-12">
-          <h2 className="text-2xl font-semibold">Get in touch</h2>
-          <p className="mt-2 text-muted-foreground">I&apos;m available for freelance and full-time opportunities.</p>
-        </section>
+        <ContactSection />
       </main>
 
       <Footer />
