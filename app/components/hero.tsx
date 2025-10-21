@@ -1,4 +1,5 @@
 import { Button } from "~/components/ui/button"
+import PersonalInfo from "~/components/personal-info"
 
 export function Hero() {
   return (
@@ -12,7 +13,9 @@ export function Hero() {
           the stack — from the database and APIs to polished UIs and CI/CD.
         </p>
 
-        <div className="mt-8 flex items-center justify-center gap-4">
+  <PersonalInfo name="Carlos Castillo" experience="today - 2009" location="Alajuela, Costa Rica" />
+
+  <div className="mt-8 flex items-center justify-center gap-4">
           <a href="#projects">
             <Button size="lg">See projects</Button>
           </a>
