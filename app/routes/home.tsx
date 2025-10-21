@@ -14,7 +14,7 @@
 
 import type { Route } from "./+types/home"
 import { Header } from "~/components/header"
-import { Hero } from "~/components/hero"
+import { HeroSection } from "~/components/hero-section"
 import { Footer } from "~/components/footer"
 import ProjectsSection from "~/components/projects-section"
 import TechnologiesSection from "~/components/technologies-section"
@@ -73,8 +73,8 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <main>
-        <Hero />
+      <main className="mx-auto max-w-4xl px-6 py-12 flex flex-col items-center text-center space-y-12">
+        <HeroSection />
 
         <ProjectsSection projects={sampleProjects} />
 
