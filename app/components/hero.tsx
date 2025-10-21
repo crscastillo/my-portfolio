@@ -13,7 +13,7 @@ export function Hero() {
           the stack — from the database and APIs to polished UIs and CI/CD.
         </p>
 
-  <PersonalInfo name="Carlos Castillo" experience="today - 2009" location="Alajuela, Costa Rica" />
+  <PersonalInfo name="Carlos Castillo" startYear={2009} location="Alajuela, Costa Rica" />
 
   <div className="mt-8 flex items-center justify-center gap-4">
           <a href="#projects">
