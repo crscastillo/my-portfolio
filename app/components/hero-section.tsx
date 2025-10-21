@@ -6,14 +6,15 @@ export function HeroSection() {
         <section className="container mx-auto px-4 py-20">
             <div className="max-w-4xl mx-auto text-center">
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-                    Hey, I'm Carlos Castillo
+                    Senior Full‑Stack Engineer
                 </h1>
                 <h2 className="text-2xl sm:text-2xl font-bold tracking-tight mt-3 mb-3">
-                    Full-stack Software Developer
+                    16+ years building and leading web platforms for US companies
                 </h2>
                 <p className="mt-4 text-lg text-muted-foreground">
-                    I build fast, accessible, and reliable web applications. I work across
-                    the stack — from the database and APIs to polished UIs and CI/CD.
+                    I'm Carlos Castillo a Senior full-stack engineer with leadership experience and deep expertise in
+                    Python, Go, React, Docker, and cloud architectures. I design, build, and
+                    guide teams to deliver reliable, scalable production systems.
                 </p>
                 
                 <div className="mt-8 flex items-center justify-center gap-4">
