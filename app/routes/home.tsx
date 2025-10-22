@@ -22,6 +22,7 @@ import EducationSection from "~/components/education-section"
 import ClientsSection from "~/components/clients-section"
 import LatestPostsSection from "~/components/latest-posts-section"
 import ContactSection from "~/components/contact-section"
+import GitHubRepos from "~/components/github-repos"
 import { getTopPosts, type Post as BlogPost } from "../../lib/db/posts"
 import { useEffect, useState } from "react"
 import siteData, { sampleProjects, techs, educationEntries, clients } from "~/data/site-data"
@@ -63,9 +64,11 @@ export default function Home() {
 
         <EducationSection entries={educationEntries} />
 
-        <ClientsSection clients={clients} />
+  <ClientsSection clients={clients} />
 
-        <ContactSection />
+  <GitHubRepos username="crscastillo" count={8} />
+
+  <ContactSection />
       </main>
 
       <Footer />
