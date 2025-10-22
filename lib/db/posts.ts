@@ -3,6 +3,7 @@ export type Post = {
   title: string
   summary: string
   slug: string
+  body?: string
   publishedAt: string
   tags?: string[]
 }
@@ -14,6 +15,7 @@ const SAMPLE_POSTS: Post[] = [
     id: "p1",
     title: "Scaling Websockets for Realtime Apps",
     summary: "How we built a resilient websocket layer for millions of connected clients.",
+    body: "We needed a websocket layer that could scale horizontally across multiple regions.\n\nThis post walks through the architecture choices we made, including connection routing, backpressure handling, and observability.",
     slug: "scaling-websockets",
     publishedAt: "2024-09-10",
     tags: ["realtime", "websockets", "scaling"],
@@ -22,6 +24,7 @@ const SAMPLE_POSTS: Post[] = [
     id: "p2",
     title: "Designing a Resilient E-commerce Backend",
     summary: "Patterns and decisions for building a microservices-backed storefront.",
+    body: "Building a resilient e-commerce backend required thinking about payment retries, idempotency, and inventory consistency.\n\nWe used event sourcing for certain flows and a combination of queues and transactional updates to maintain correctness.",
     slug: "resilient-ecommerce",
     publishedAt: "2023-12-02",
     tags: ["backend", "architecture"],
@@ -30,6 +33,7 @@ const SAMPLE_POSTS: Post[] = [
     id: "p3",
     title: "Component-Driven Design with Storybook",
     summary: "How a design system sped up our product development and improved quality.",
+    body: "A component-driven approach made it easy to iterate on UI without regressions.\n\nStorybook served as the single source of truth for components and documentation.",
     slug: "component-driven-design",
     publishedAt: "2023-05-20",
     tags: ["design-system", "frontend"],
@@ -60,6 +64,7 @@ export async function getTopPosts(limit = 3): Promise<Post[]> {
     title: r.title,
     summary: r.summary,
     slug: r.slug,
+    body: (r as any).body ?? "",
     publishedAt: r.published_at ?? "",
     tags: r.tags ?? [],
   }))
@@ -81,6 +86,7 @@ export async function getAllPosts(): Promise<Post[]> {
     title: r.title,
     summary: r.summary,
     slug: r.slug,
+    body: (r as any).body ?? "",
     publishedAt: r.published_at ?? "",
     tags: r.tags ?? [],
   }))
@@ -102,6 +108,7 @@ export async function getPostBySlug(slug: string): Promise<Post | undefined> {
     title: data.title,
     summary: data.summary,
     slug: data.slug,
+    body: (data as any).body ?? "",
     publishedAt: data.published_at ?? "",
     tags: data.tags ?? [],
   }

@@ -21,8 +21,11 @@ export default function PostRoute() {
       <h1 className="text-3xl font-bold">{post.title}</h1>
       <p className="mt-2 text-sm text-muted-foreground">{new Date(post.publishedAt).toLocaleDateString()}</p>
       <article className="mt-6 prose dark:prose-invert">
-        {/* Placeholder: replace with rich content when posts include body */}
-        <p>{post.summary}</p>
+        {post.body ? (
+          post.body.split("\n\n").map((para: string, idx: number) => <p key={idx}>{para}</p>)
+        ) : (
+          <p>{post.summary}</p>
+        )}
       </article>
     </main>
   )
